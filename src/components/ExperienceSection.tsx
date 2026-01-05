@@ -1,5 +1,4 @@
-import { Briefcase, Calendar } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Briefcase, Calendar, ArrowUpRight } from "lucide-react";
 
 const experiences = [
   {
@@ -31,18 +30,22 @@ const experiences = [
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="experience" className="py-28 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-secondary/30" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16 animate-fade-in-up">
-            <p className="text-primary font-medium text-sm uppercase tracking-widest mb-4">
+          <div className="text-center mb-20">
+            <p className="text-primary font-medium text-sm uppercase tracking-widest mb-4 animate-fade-in-up">
               Professional Background
             </p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Work Experience
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              Work <span className="text-gradient">Experience</span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
               Industry experience that shaped my understanding of scalable systems 
               and drove my transition to AI research.
             </p>
@@ -51,52 +54,51 @@ const ExperienceSection = () => {
           {/* Experience Cards */}
           <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <Card
+              <div
                 key={exp.title}
-                variant="elevated"
-                className="animate-fade-in-up overflow-hidden"
+                className="group glass rounded-3xl border border-border/50 p-8 hover-glow hover-lift animate-fade-in-up"
                 style={{ animationDelay: `${0.1 * index}s` }}
               >
-                <CardHeader className="pb-4">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Briefcase className="text-primary" size={24} />
-                      </div>
-                      <div>
-                        <CardTitle className="text-2xl">{exp.title}</CardTitle>
-                        <CardDescription className="text-base mt-1">
-                          {exp.company} • {exp.description}
-                        </CardDescription>
-                      </div>
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+                  <div className="flex items-start gap-5">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                      <Briefcase className="text-primary" size={24} />
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar size={16} />
-                      <span className="text-sm font-medium">{exp.period}</span>
+                    <div>
+                      <h3 className="text-2xl font-display font-bold group-hover:text-primary transition-colors">
+                        {exp.title}
+                      </h3>
+                      <p className="text-muted-foreground mt-1">
+                        {exp.company} • {exp.description}
+                      </p>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 mb-6">
-                    {exp.highlights.map((highlight, i) => (
-                      <li key={i} className="flex items-start gap-3 text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 text-muted-foreground text-sm shrink-0">
+                    <Calendar size={14} />
+                    <span className="font-medium">{exp.period}</span>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+
+                <ul className="space-y-3 mb-6 pl-2">
+                  {exp.highlights.map((highlight, i) => (
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                      <ArrowUpRight size={16} className="text-primary mt-1 flex-shrink-0" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50">
+                  {exp.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1.5 text-xs font-medium bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
