@@ -1,4 +1,4 @@
-import { Brain, Sparkles, Target, Users } from "lucide-react";
+import { Brain, Sparkles, Target, Users, ChevronRight } from "lucide-react";
 
 const AboutSection = () => {
   const highlights = [
@@ -25,28 +25,32 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-28 relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16 animate-fade-in-up">
-            <p className="text-primary font-medium text-sm uppercase tracking-widest mb-4">
+          <div className="text-center mb-20">
+            <p className="text-primary font-medium text-sm uppercase tracking-widest mb-4 animate-fade-in-up">
               About Me
             </p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Bridging Industry & Research
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              Bridging Industry{" "}
+              <span className="text-gradient">&</span> Research
             </h2>
-            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
               A passionate AI researcher transitioning from industry software roles 
               to cutting-edge machine learning research.
             </p>
           </div>
 
           {/* Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Bio Text */}
-            <div className="space-y-6 animate-slide-in-left" style={{ animationDelay: "0.1s" }}>
-              <div className="prose prose-invert max-w-none">
+            <div className="space-y-8 animate-slide-in-left">
+              <div className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed text-lg">
                   I'm currently in my final semester pursuing a{" "}
                   <span className="text-foreground font-medium">
@@ -60,53 +64,56 @@ const AboutSection = () => {
                   <span className="text-primary font-medium">Large Language Models</span>,{" "}
                   <span className="text-primary font-medium">reasoning verification</span>, and{" "}
                   <span className="text-primary font-medium">uncertainty quantification</span>. 
-                  I'm particularly fascinated by understanding and mitigating hallucinations in LLMs, 
-                  making AI systems more reliable and trustworthy.
+                  I'm particularly fascinated by understanding and mitigating hallucinations in LLMs.
                 </p>
                 <p className="text-muted-foreground leading-relaxed text-lg">
                   Before diving into research, I gained valuable industry experience at 
                   Samsung R&D working on 5G communication protocols and at Amazon as a 
-                  Data Analyst. This unique blend of industry expertise and research 
-                  aspirations drives my approach to solving complex AI challenges.
+                  Data Analyst.
                 </p>
               </div>
 
               {/* Education Timeline */}
-              <div className="space-y-4 pt-6 border-t border-border">
-                <h3 className="font-display font-semibold text-xl">Education</h3>
+              <div className="space-y-4 pt-6">
+                <h3 className="font-display font-semibold text-xl flex items-center gap-2">
+                  <div className="w-8 h-0.5 bg-gradient-primary" />
+                  Education
+                </h3>
                 
-                <div className="space-y-4">
-                  <div className="flex gap-4">
-                    <div className="w-3 h-3 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold">MS in Electrical & Computer Engineering</p>
-                      <p className="text-muted-foreground">KFUPM • Expected May 2026</p>
-                    </div>
+                <div className="space-y-4 pl-4 border-l-2 border-border">
+                  <div className="relative pl-6">
+                    <div className="absolute left-0 top-2 w-3 h-3 rounded-full bg-primary -translate-x-[7px]" />
+                    <p className="font-semibold">MS in Electrical & Computer Engineering</p>
+                    <p className="text-muted-foreground text-sm">KFUPM • Expected May 2026</p>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="w-3 h-3 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold">B.Tech in Electronics & Communication</p>
-                      <p className="text-muted-foreground">NIT Srinagar • June 2022</p>
-                    </div>
+                  <div className="relative pl-6">
+                    <div className="absolute left-0 top-2 w-3 h-3 rounded-full bg-muted -translate-x-[7px]" />
+                    <p className="font-semibold">B.Tech in Electronics & Communication</p>
+                    <p className="text-muted-foreground text-sm">NIT Srinagar • June 2022</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Highlight Cards */}
-            <div className="grid sm:grid-cols-2 gap-4 animate-slide-in-right" style={{ animationDelay: "0.2s" }}>
+            <div className="grid sm:grid-cols-2 gap-4">
               {highlights.map((item, index) => (
                 <div
                   key={item.title}
-                  className="p-6 bg-card rounded-xl border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-glow group"
-                  style={{ animationDelay: `${0.1 * index}s` }}
+                  className="group p-6 glass rounded-2xl border border-border/50 hover-glow hover-lift animate-fade-in-up"
+                  style={{ animationDelay: `${0.1 + 0.1 * index}s` }}
                 >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                     <item.icon className="text-primary" size={24} />
                   </div>
-                  <h3 className="font-display font-semibold text-lg mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                  <h3 className="font-display font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                  <ChevronRight 
+                    size={16} 
+                    className="mt-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" 
+                  />
                 </div>
               ))}
             </div>
