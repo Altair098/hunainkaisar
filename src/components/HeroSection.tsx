@@ -1,6 +1,6 @@
 import { ArrowRight, ExternalLink, GraduationCap, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto from "@/assets/hunain-profile.jpg";
 
 const HeroSection = () => {
   return (
