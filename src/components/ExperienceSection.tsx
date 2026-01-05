@@ -43,10 +43,10 @@ const ExperienceSection = () => {
               Professional Background
             </p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-              Work <span className="text-gradient">Experience</span>
+              Industry <span className="text-gradient">Experience</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-              Industry experience that shaped my understanding of scalable systems 
+              Professional roles that shaped my understanding of scalable systems 
               and drove my transition to AI research.
             </p>
           </div>
