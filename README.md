@@ -1,73 +1,142 @@
-# Welcome to your Lovable project
+# Personal Portfolio Website
 
-## Project info
+A modern, minimal, dark-mode–friendly **personal portfolio website** built to showcase my background in **AI research, machine learning, and software engineering**, including research experience, academic projects, and industry work.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+This site is designed with clarity, usability, and professionalism in mind, making it suitable for **research labs, PhD applications, and AI/ML roles**.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🌐 Live Project
 
-**Use Lovable**
+**URL:** [https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📌 About the Project
 
-**Use your preferred IDE**
+This portfolio was built to:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+* Present my **academic background** and **research interests**
+* Highlight **research internships** and **industry experience**
+* Showcase **AI / ML projects** with technical depth
+* Maintain a **clean, modern UI** with a minimal, dark-mode-first design
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The project emphasizes readability, structure, and technical credibility over flashy visuals.
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+## 🛠 Development & Editing
+
+There are multiple ways to work with this codebase.
+
+### Option 1: Edit Using Lovable
+
+I used **Lovable** for rapid UI iteration and layout refinement.
+
+* Open the project:
+  [https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID)
+* Changes made through Lovable are **automatically committed** to this repository.
+* Useful for quick UI, layout, and component-level updates.
+
+---
+
+### Option 2: Run Locally (Recommended for Development)
+
+#### Prerequisites
+
+* Node.js
+* npm
+  (Recommended via `nvm`: [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm))
+
+#### Steps
+
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+This will start a local development server with hot reloading and instant preview.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+### Option 3: Edit Directly on GitHub
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+For small or quick edits:
 
-## What technologies are used for this project?
+* Open the file you want to edit
+* Click the **Edit (✏️)** button
+* Commit changes directly from GitHub
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Option 4: GitHub Codespaces
 
-## How can I deploy this project?
+You can also develop entirely in the browser:
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+* Click **Code → Codespaces**
+* Create a new Codespace
+* Edit, commit, and push changes without local setup
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## ⚙️ Tech Stack
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project is built using:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+* **Vite** – fast build and dev tooling
+* **TypeScript** – type-safe JavaScript
+* **React** – component-based UI
+* **shadcn/ui** – accessible, composable UI components
+* **Tailwind CSS** – utility-first styling
+
+---
+
+## 🚀 Deployment
+
+Deployment is handled via **Lovable**:
+
+1. Open the project in Lovable
+2. Click **Share → Publish**
+3. Updates pushed to this repository are reflected automatically
+
+---
+
+## 🌍 Custom Domain
+
+Custom domains are supported.
+
+* Go to **Project → Settings → Domains** in Lovable
+* Click **Connect Domain**
+
+Documentation:
+[https://docs.lovable.dev/features/custom-domain#custom-domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+---
+
+## 📁 Project Focus
+
+This portfolio highlights:
+
+* Research Experience (academic internships & mentorships)
+* AI / ML Projects
+* Industry Experience
+* Skills and Tools
+* Contact & Research Profiles (GitHub, Google Scholar, LinkedIn)
+
+The structure is intentionally designed for **academic and research visibility**, not just general web presence.
+
+---
+
+## 📄 License
+
+This project is for personal and academic use.
+Reuse with attribution if referencing structure or components.
