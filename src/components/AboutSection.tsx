@@ -85,8 +85,7 @@ const AboutSection = () => {
                   <div className="relative pl-6">
                     <div className="absolute left-0 top-2 w-3 h-3 rounded-full bg-muted -translate-x-[7px]" />
                     <p className="font-semibold">B.Tech in Electronics & Communication</p>
-                    <p className="text-muted-foreground text-sm">CGPA: 3.34/4
-NIT Srinagar • June 2022</p>
+                    <p className="text-muted-foreground text-sm"> NIT Srinagar • June 2022  • CGPA: 3.34/4 </p>
                   </div>
                 </div>
               </div>
