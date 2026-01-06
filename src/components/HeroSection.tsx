@@ -103,7 +103,7 @@ const HeroSection = () => {
                   </div>
                   <div>
                     <p className="text-sm font-semibold">Seeking</p>
-                    <p className="text-xs text-muted-foreground">PhD & Research</p>
+                    <p className="text-xs text-muted-foreground">​Innovation       </p>
                   </div>
                 </div>
               </div>
