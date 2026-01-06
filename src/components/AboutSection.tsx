@@ -1,31 +1,23 @@
 import { Brain, Sparkles, Target, Users, ChevronRight } from "lucide-react";
-
 const AboutSection = () => {
-  const highlights = [
-    {
-      icon: Brain,
-      title: "AI Research Focus",
-      description: "LLM reasoning, hallucination analysis, uncertainty quantification",
-    },
-    {
-      icon: Sparkles,
-      title: "Industry Background",
-      description: "Samsung R&D and Amazon experience in large-scale systems",
-    },
-    {
-      icon: Target,
-      title: "Research Goals",
-      description: "Building reliable, interpretable, and robust AI systems",
-    },
-    {
-      icon: Users,
-      title: "Seeking Opportunities",
-      description: "PhD positions, research collaborations, and AI/ML roles",
-    },
-  ];
-
-  return (
-    <section id="about" className="py-28 relative overflow-hidden">
+  const highlights = [{
+    icon: Brain,
+    title: "AI Research Focus",
+    description: "LLM reasoning, hallucination analysis, uncertainty quantification"
+  }, {
+    icon: Sparkles,
+    title: "Industry Background",
+    description: "Samsung R&D and Amazon experience in large-scale systems"
+  }, {
+    icon: Target,
+    title: "Research Goals",
+    description: "Building reliable, interpretable, and robust AI systems"
+  }, {
+    icon: Users,
+    title: "Seeking Opportunities",
+    description: "PhD positions, research collaborations, and AI/ML roles"
+  }];
+  return <section id="about" className="py-28 relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
       
@@ -36,11 +28,15 @@ const AboutSection = () => {
             <p className="text-primary font-medium text-sm uppercase tracking-widest mb-4 animate-fade-in-up">
               About Me
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 animate-fade-in-up" style={{
+            animationDelay: "0.1s"
+          }}>
               Bridging Industry{" "}
               <span className="text-gradient">&</span> Research
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up" style={{
+            animationDelay: "0.2s"
+          }}>
               A passionate AI researcher transitioning from industry software roles 
               to cutting-edge machine learning research.
             </p>
@@ -53,9 +49,7 @@ const AboutSection = () => {
               <div className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed text-lg">
                   I'm currently in my final semester pursuing a{" "}
-                  <span className="text-foreground font-medium">
-                    Master of Science in Electrical and Computer Engineering
-                  </span>{" "}
+                  <span className="text-foreground font-medium">Master of Science in Electrical and Computer Engineering with a CGPA of 3.82/4 </span>{" "}
                   at King Fahd University of Petroleum and Minerals (KFUPM), 
                   with an expected graduation in May 2026.
                 </p>
@@ -97,12 +91,9 @@ const AboutSection = () => {
 
             {/* Highlight Cards */}
             <div className="grid sm:grid-cols-2 gap-4">
-              {highlights.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="group p-6 glass rounded-2xl border border-border/50 hover-glow hover-lift animate-fade-in-up"
-                  style={{ animationDelay: `${0.1 + 0.1 * index}s` }}
-                >
+              {highlights.map((item, index) => <div key={item.title} className="group p-6 glass rounded-2xl border border-border/50 hover-glow hover-lift animate-fade-in-up" style={{
+              animationDelay: `${0.1 + 0.1 * index}s`
+            }}>
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                     <item.icon className="text-primary" size={24} />
                   </div>
@@ -110,18 +101,12 @@ const AboutSection = () => {
                     {item.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
-                  <ChevronRight 
-                    size={16} 
-                    className="mt-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" 
-                  />
-                </div>
-              ))}
+                  <ChevronRight size={16} className="mt-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                </div>)}
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
