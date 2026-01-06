@@ -57,7 +57,7 @@ const AboutSection = () => {
                   My research interests lie at the intersection of{" "}
                   <span className="text-primary font-medium">Large Language Models</span>,{" "}
                   <span className="text-primary font-medium">reasoning verification</span>, and{" "}
-                  <span className="text-primary font-medium">uncertainty quantification</span>. 
+                  <span className="text-primary font-medium">​Computer Vision   </span>. 
                   I'm particularly fascinated by understanding and mitigating hallucinations in LLMs.
                 </p>
                 <p className="text-muted-foreground leading-relaxed text-lg">
