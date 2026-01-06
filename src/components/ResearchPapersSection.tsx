@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { FileText, ExternalLink, BookOpen } from "lucide-react";
+import { FileText, ExternalLink, BookOpen, Clock, Send } from "lucide-react";
 
-type PaperStatus = "accepted" | "submitted";
+type PaperStatus = "accepted" | "submitted" | "coming-soon";
 
 type Paper = {
   title: string;
@@ -9,35 +9,57 @@ type Paper = {
   venue: string;
   year?: number;
   status: PaperStatus;
-  links?: { label: string; href: string }[];
+  link?: string;
+  doi?: string;
 };
 
 const papers: Paper[] = [
-  // Replace these placeholders with your actual publications
   {
-    title: "REPLACE_WITH_TITLE",
-    authors: "REPLACE_WITH_AUTHORS",
-    venue: "REPLACE_WITH_VENUE",
+    title: "Distributed Decision Support Systems in Healthcare: A Systematic Review",
+    authors: "Hunain Kaisar, et al.",
+    venue: "Systems, MDPI, Vol. 13, Issue 3",
     year: 2025,
     status: "accepted",
-    links: [
-      { label: "PDF", href: "#" },
-      { label: "DOI", href: "#" },
-    ],
+    doi: "https://doi.org/10.3390/systems13030157",
   },
   {
-    title: "REPLACE_WITH_TITLE",
-    authors: "REPLACE_WITH_AUTHORS",
-    venue: "Submitted to: REPLACE_WITH_VENUE (Under Review)",
+    title: "Enhancing Diabetic Readmission Prediction using Transformer Models and Mutual Information Sampling",
+    authors: "Hunain Kaisar, Muhammad Najeeb Khan, Mohamed Mohandes, Shafiqur Rehman, Ali Al-Shaikhi",
+    venue: "PLOS ONE",
     year: 2025,
+    status: "accepted",
+  },
+  {
+    title: "MobileNetV3-Small–Driven PQCN for Robotic Sorting in Clutter: Generalization Across Diverse Geometric Objects",
+    authors: "Mir Suhail Alam, Rama Khaled Alsheikh, Hunain Kaisar, Emmanuel Okafor",
+    venue: "Proceedings of the 2nd International Conference on Smart Mobility and Logistics Ecosystems (SMiLE), Dhahran, Saudi Arabia",
+    year: 2026,
+    status: "accepted",
+  },
+  {
+    title: "RL-Assisted Digital Twin for Adaptive Control Parameter Tuning of a Nonholonomic Mobile Robot Under Gaussian Noise",
+    authors: "Hunain Kaisar, Muhammad Rehan",
+    venue: "Proceedings of the 10th International Conference on Material Engineering and Manufacturing (ICMEM 2026)",
+    year: 2026,
+    status: "accepted",
+  },
+  {
+    title: "A Digital Twin-empowered Resilient Path-following Methodology for Non-holonomic Autonomous Vehicles under Denial-of-Service Attacks",
+    authors: "Hunain Kaisar, Muhammad Rehan, Ijaz Ahmed, Muhammad Khalid",
+    venue: "IEEE Open Journal of Vehicular Technology",
     status: "submitted",
-    links: [{ label: "arXiv", href: "#" }],
   },
 ];
 
-// Sort: Accepted first, then by year (reverse chronological)
+// Sort: Accepted first, then Submitted, then Coming Soon, within each by year (reverse chronological)
+const statusOrder: Record<PaperStatus, number> = {
+  accepted: 0,
+  submitted: 1,
+  "coming-soon": 2,
+};
+
 const sortedPapers = [...papers].sort((a, b) => {
-  if (a.status !== b.status) return a.status === "accepted" ? -1 : 1;
+  if (a.status !== b.status) return statusOrder[a.status] - statusOrder[b.status];
   return (b.year ?? 0) - (a.year ?? 0);
 });
 
@@ -47,7 +69,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.12,
     },
   },
 };
@@ -55,16 +77,42 @@ const containerVariants = {
 const cardVariants = {
   hidden: { 
     opacity: 0, 
-    y: 12 
+    x: -60,
   },
   visible: { 
     opacity: 1, 
-    y: 0,
+    x: 0,
     transition: {
-      duration: 0.32,
-      ease: [0.2, 0.8, 0.2, 1] as [number, number, number, number],
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
     },
   },
+};
+
+const getStatusConfig = (status: PaperStatus) => {
+  switch (status) {
+    case "accepted":
+      return {
+        label: "Accepted",
+        icon: BookOpen,
+        badgeClass: "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30",
+        iconClass: "text-emerald-400",
+      };
+    case "submitted":
+      return {
+        label: "Submitted",
+        icon: Send,
+        badgeClass: "bg-primary/15 text-primary border border-primary/30",
+        iconClass: "text-primary",
+      };
+    case "coming-soon":
+      return {
+        label: "Coming Soon",
+        icon: Clock,
+        badgeClass: "bg-muted/50 text-muted-foreground border border-border/50",
+        iconClass: "text-muted-foreground",
+      };
+  }
 };
 
 const ResearchPapersSection = () => {
@@ -94,7 +142,7 @@ const ResearchPapersSection = () => {
             Research <span className="text-gradient">Papers</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Academic publications and ongoing research submissions in AI, machine learning, and related fields
+            Academic publications and ongoing research submissions in AI, machine learning, robotics, and healthcare systems
           </p>
         </motion.div>
 
@@ -106,94 +154,110 @@ const ResearchPapersSection = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {sortedPapers.map((paper, index) => (
-            <motion.div
-              key={index}
-              variants={shouldReduceMotion ? {} : cardVariants}
-              whileHover={shouldReduceMotion ? {} : { 
-                y: -2,
-                transition: { duration: 0.22, ease: [0.2, 0.8, 0.2, 1] }
-              }}
-              className="group glass rounded-2xl border border-border/50 p-6"
-              style={{ willChange: "transform" }}
-            >
-              {/* Top row: Title + Status badge */}
-              <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-                <div className="flex items-start gap-3 flex-1 min-w-0">
-                  <motion.div
-                    whileHover={shouldReduceMotion ? {} : { rotate: -6, scale: 1.04 }}
-                    transition={{ duration: 0.22, ease: [0.2, 0.8, 0.2, 1] }}
-                    className="text-primary mt-0.5 flex-shrink-0"
-                  >
-                    {paper.status === "accepted" ? (
-                      <BookOpen size={18} />
-                    ) : (
-                      <FileText size={18} />
-                    )}
-                  </motion.div>
-                  <h3 className="font-display font-semibold text-lg leading-snug group-hover:text-primary transition-colors duration-200">
-                    {paper.title}
-                  </h3>
-                </div>
+          {sortedPapers.map((paper, index) => {
+            const statusConfig = getStatusConfig(paper.status);
+            const StatusIcon = statusConfig.icon;
+            const hasLink = paper.doi || paper.link;
+
+            return (
+              <motion.div
+                key={index}
+                variants={shouldReduceMotion ? {} : cardVariants}
+                whileHover={shouldReduceMotion ? {} : { 
+                  x: 8,
+                  transition: { duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }
+                }}
+                className="group relative glass rounded-2xl border border-border/50 overflow-hidden"
+                style={{ willChange: "transform" }}
+              >
+                {/* Swipe indicator line */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/60 via-primary to-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
-                {/* Status Badge */}
-                <span
-                  className={`flex-shrink-0 px-3 py-1 text-xs font-medium rounded-full whitespace-nowrap ${
-                    paper.status === "accepted"
-                      ? "bg-primary/15 text-primary border border-primary/30"
-                      : "bg-muted/50 text-muted-foreground border border-border/50"
-                  }`}
-                >
-                  {paper.status === "accepted" ? "Accepted" : "Submitted"}
-                </span>
-              </div>
+                <div className="p-6 pl-8">
+                  {/* Top row: Status badge + Year */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full ${statusConfig.badgeClass}`}>
+                      <StatusIcon size={12} />
+                      {statusConfig.label}
+                    </span>
+                    {paper.year && (
+                      <span className="text-xs text-muted-foreground/70">
+                        {paper.year}
+                      </span>
+                    )}
+                  </div>
 
-              {/* Authors */}
-              <p className="text-muted-foreground text-sm mb-2 pl-8">
-                {paper.authors}
-              </p>
-
-              {/* Venue + Year */}
-              <p className="text-muted-foreground/80 text-sm mb-4 pl-8">
-                {paper.venue}
-                {paper.year ? ` • ${paper.year}` : ""}
-              </p>
-
-              {/* Links */}
-              {paper.links && paper.links.length > 0 && (
-                <div className="flex flex-wrap gap-3 pl-8">
-                  {paper.links.map((link, linkIndex) => (
+                  {/* Title - clickable if link exists */}
+                  {hasLink ? (
                     <a
-                      key={linkIndex}
-                      href={link.href}
+                      href={paper.doi || paper.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-colors duration-200"
+                      className="block group/link"
                     >
-                      {link.label}
-                      <ExternalLink size={12} />
+                      <h3 className="font-display font-semibold text-lg leading-snug mb-2 group-hover/link:text-primary transition-colors duration-200 flex items-start gap-2">
+                        <span>{paper.title}</span>
+                        <ExternalLink size={14} className="flex-shrink-0 mt-1 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                      </h3>
                     </a>
-                  ))}
+                  ) : (
+                    <h3 className="font-display font-semibold text-lg leading-snug mb-2 group-hover:text-primary transition-colors duration-200">
+                      {paper.title}
+                    </h3>
+                  )}
+
+                  {/* Authors */}
+                  <p className="text-muted-foreground text-sm mb-2">
+                    {paper.authors}
+                  </p>
+
+                  {/* Venue */}
+                  <p className="text-muted-foreground/70 text-sm italic">
+                    {paper.venue}
+                  </p>
+
+                  {/* Link button for papers with DOI */}
+                  {paper.doi && (
+                    <div className="mt-4">
+                      <a
+                        href={paper.doi}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-all duration-200 hover:translate-x-1"
+                      >
+                        <FileText size={14} />
+                        View Publication
+                        <ExternalLink size={12} />
+                      </a>
+                    </div>
+                  )}
                 </div>
-              )}
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
 
-        {/* Empty state note */}
-        {sortedPapers.length === 0 && (
-          <motion.div 
-            className="text-center py-12"
-            initial={shouldReduceMotion ? {} : { opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <FileText size={48} className="text-muted-foreground/50 mx-auto mb-4" />
-            <p className="text-muted-foreground">
-              Publications coming soon...
-            </p>
-          </motion.div>
-        )}
+        {/* Paper count summary */}
+        <motion.div 
+          className="flex justify-center gap-6 mt-12"
+          initial={shouldReduceMotion ? {} : { opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.32, delay: 0.3 }}
+        >
+          {[
+            { status: "accepted" as PaperStatus, count: sortedPapers.filter(p => p.status === "accepted").length },
+            { status: "submitted" as PaperStatus, count: sortedPapers.filter(p => p.status === "submitted").length },
+          ].filter(item => item.count > 0).map(({ status, count }) => {
+            const config = getStatusConfig(status);
+            return (
+              <div key={status} className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span className={`w-2 h-2 rounded-full ${status === "accepted" ? "bg-emerald-400" : "bg-primary"}`} />
+                <span>{count} {config.label}</span>
+              </div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
