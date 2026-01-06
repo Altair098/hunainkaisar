@@ -49,7 +49,7 @@ const AboutSection = () => {
               <div className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed text-lg">
                   I'm currently in my final semester pursuing a{" "}
-                  <span className="text-foreground font-medium">Master of Science in Electrical and Computer Engineering with a CGPA of 3.82/4 </span>{" "}
+                  <span className="text-foreground font-medium">Master of Science in Electrical and Computer Engineering</span>{" "}
                   at King Fahd University of Petroleum and Minerals (KFUPM), 
                   with an expected graduation in May 2026.
                 </p>
