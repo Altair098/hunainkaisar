@@ -77,8 +77,8 @@ const AboutSection = () => {
                 <div className="space-y-4 pl-4 border-l-2 border-border">
                   <div className="relative pl-6">
                     <div className="absolute left-0 top-2 w-3 h-3 rounded-full bg-primary -translate-x-[7px]" />
-                    <p className="font-semibold">MS in Electrical & Computer Engineering
-CGPA: 3.8/4 
+                    <p className="font-semibold text-base text-justify mx-0 px-0">MS in Electrical & Computer Engineering 
+ 
                   </p>
                     <p className="text-muted-foreground text-sm">KFUPM • Expected May 2026</p>
                   </div>
