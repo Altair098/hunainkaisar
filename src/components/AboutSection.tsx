@@ -80,8 +80,7 @@ const AboutSection = () => {
                     <p className="font-semibold text-base text-justify mx-0 px-0">MS in Electrical & Computer Engineering 
  
                   </p>
-                    <p className="text-muted-foreground text-sm">CGPA: 3.813/4
-KFUPM • Expected May 2026</p>
+                    <p className="text-muted-foreground text-sm">​</p>
                   </div>
                   <div className="relative pl-6">
                     <div className="absolute left-0 top-2 w-3 h-3 rounded-full bg-muted -translate-x-[7px]" />
