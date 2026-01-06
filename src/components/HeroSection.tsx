@@ -70,7 +70,7 @@ const HeroSection = () => {
             animationDelay: "0.3s"
           }}>
               <div className="space-y-1">
-                <p className="text-4xl font-display font-bold text-gradient">5+</p>
+                <p className="text-4xl font-display font-bold text-gradient">7+</p>
                 <p className="text-sm text-muted-foreground">Research Projects</p>
               </div>
               <div className="space-y-1">
