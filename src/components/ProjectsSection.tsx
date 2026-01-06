@@ -1,5 +1,5 @@
-import { ArrowUpRight, Github, Zap } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight, Zap, ExternalLink, Github, FlaskConical, Code } from "lucide-react";
 
 const projects = [
   {
@@ -15,6 +15,7 @@ const projects = [
     technologies: ["Python", "PyTorch", "LLMs", "RAG", "Uncertainty"],
     featured: true,
     color: "from-blue-500/20 to-cyan-500/20",
+    icon: FlaskConical,
   },
   {
     title: "IEKF-SLAM for Quadcopter UAVs",
@@ -29,6 +30,7 @@ const projects = [
     technologies: ["Python", "MATLAB", "Computer Vision", "SLAM"],
     featured: true,
     color: "from-violet-500/20 to-purple-500/20",
+    icon: Code,
   },
   {
     title: "Transformer-Enhanced Medical Imaging",
@@ -43,6 +45,7 @@ const projects = [
     technologies: ["PyTorch", "Transformers", "Medical Imaging"],
     featured: true,
     color: "from-emerald-500/20 to-teal-500/20",
+    icon: Zap,
   },
   {
     title: "Transformer-Based Readmission Prediction",
@@ -72,38 +75,85 @@ const projects = [
   },
 ];
 
-const ProjectsSection = () => {
-  return (
-    <section id="projects" className="py-28 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-secondary/30" />
-      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <p className="text-primary font-medium text-sm uppercase tracking-widest mb-4 animate-fade-in-up">
-              Research & Development
-            </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-              Featured <span className="text-gradient">Projects</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-              A collection of research projects spanning LLM verification, robotics, 
-              medical imaging, and more.
-            </p>
-          </div>
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
-          {/* Featured Projects */}
-          <div className="grid lg:grid-cols-3 gap-6 mb-8">
-            {projects
-              .filter((p) => p.featured)
-              .map((project, index) => (
-                <div
+const cardVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 12 
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.32,
+      ease: [0.2, 0.8, 0.2, 1] as [number, number, number, number],
+    },
+  },
+};
+
+const ProjectsSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <section id="projects" className="py-24 relative">
+      {/* Background accent */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -left-32 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="inline-block px-4 py-1.5 text-xs font-medium tracking-wider uppercase bg-primary/10 text-primary rounded-full mb-4">
+            Featured Work
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+            My <span className="text-gradient">Projects</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A curated selection of research and development projects spanning AI, robotics, and computer vision
+          </p>
+        </motion.div>
+
+        {/* Featured Projects */}
+        <motion.div 
+          className="grid lg:grid-cols-3 gap-6 mb-8"
+          variants={shouldReduceMotion ? {} : containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          {projects
+            .filter((p) => p.featured)
+            .map((project) => {
+              const IconComponent = project.icon || Zap;
+              return (
+                <motion.div
                   key={project.title}
-                  className="group relative glass rounded-3xl border border-border/50 overflow-hidden hover-glow hover-lift animate-fade-in-up"
-                  style={{ animationDelay: `${0.1 * index}s` }}
+                  variants={shouldReduceMotion ? {} : cardVariants}
+                  whileHover={shouldReduceMotion ? {} : { 
+                    y: -4,
+                    transition: { duration: 0.22, ease: [0.2, 0.8, 0.2, 1] }
+                  }}
+                  className="group relative glass rounded-3xl border border-border/50 overflow-hidden"
+                  style={{ willChange: "transform" }}
                 >
                   {/* Gradient background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -113,10 +163,16 @@ const ProjectsSection = () => {
                       <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">
                         {project.category}
                       </span>
-                      <Zap size={16} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <motion.div
+                        whileHover={shouldReduceMotion ? {} : { rotate: -6, scale: 1.04 }}
+                        transition={{ duration: 0.22, ease: [0.2, 0.8, 0.2, 1] }}
+                        className="text-primary opacity-70 group-hover:opacity-100 transition-opacity"
+                      >
+                        <IconComponent size={18} />
+                      </motion.div>
                     </div>
                     
-                    <h3 className="font-display font-bold text-xl mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="font-display font-bold text-xl mb-3 group-hover:text-primary transition-colors duration-200">
                       {project.title}
                     </h3>
                     
@@ -133,67 +189,96 @@ const ProjectsSection = () => {
                       ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50 mt-auto">
-                      {project.technologies.slice(0, 4).map((tech) => (
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 text-xs bg-secondary text-muted-foreground rounded-md"
+                          className="px-2 py-1 text-xs bg-secondary/80 text-muted-foreground rounded-md border border-border/50"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
                   </div>
-                </div>
-              ))}
-          </div>
+                </motion.div>
+              );
+            })}
+        </motion.div>
 
-          {/* Other Projects */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects
-              .filter((p) => !p.featured)
-              .map((project, index) => (
-                <div
-                  key={project.title}
-                  className="group glass rounded-2xl border border-border/50 p-6 hover-glow animate-fade-in-up"
-                  style={{ animationDelay: `${0.3 + 0.1 * index}s` }}
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">
-                      {project.category}
-                    </span>
-                  </div>
-                  <h3 className="font-display font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 text-xs bg-secondary text-muted-foreground rounded-md"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-          </div>
-
-          {/* CTA */}
-          <div className="text-center mt-16 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-            <Button variant="heroOutline" size="lg" asChild>
-              <a
-                href="https://github.com/altair098"
-                target="_blank"
-                rel="noopener noreferrer"
+        {/* Other Projects */}
+        <motion.div 
+          className="grid md:grid-cols-2 gap-6 mb-12"
+          variants={shouldReduceMotion ? {} : containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          {projects
+            .filter((p) => !p.featured)
+            .map((project) => (
+              <motion.div
+                key={project.title}
+                variants={shouldReduceMotion ? {} : cardVariants}
+                whileHover={shouldReduceMotion ? {} : { 
+                  y: -4,
+                  transition: { duration: 0.22, ease: [0.2, 0.8, 0.2, 1] }
+                }}
+                className="group glass rounded-2xl border border-border/50 p-6"
+                style={{ willChange: "transform" }}
               >
-                <Github size={18} /> View More on GitHub
-              </a>
-            </Button>
-          </div>
-        </div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-full">
+                    {project.category}
+                  </span>
+                  <motion.div
+                    whileHover={shouldReduceMotion ? {} : { rotate: -6, scale: 1.04 }}
+                    transition={{ duration: 0.22, ease: [0.2, 0.8, 0.2, 1] }}
+                  >
+                    <Zap size={14} className="text-primary opacity-50 group-hover:opacity-100 transition-opacity" />
+                  </motion.div>
+                </div>
+                
+                <h4 className="font-display font-semibold text-lg mb-2 group-hover:text-primary transition-colors duration-200">
+                  {project.title}
+                </h4>
+                
+                <p className="text-muted-foreground text-sm mb-4">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-0.5 text-xs bg-secondary/80 text-muted-foreground rounded-md border border-border/50"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div 
+          className="text-center"
+          initial={shouldReduceMotion ? {} : { opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.32, delay: 0.2 }}
+        >
+          <a
+            href="https://github.com/altair098"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 hover:bg-primary/20 text-primary rounded-full font-medium transition-all duration-200 hover:-translate-y-0.5"
+          >
+            <Github size={18} />
+            View More on GitHub
+            <ExternalLink size={14} />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
