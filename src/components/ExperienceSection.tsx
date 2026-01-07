@@ -1,6 +1,18 @@
-import { Briefcase, Calendar, ArrowUpRight } from "lucide-react";
+import { Calendar, ArrowUpRight } from "lucide-react";
+import { SamsungIcon, AmazonIcon } from "./icons/BrandIcons";
+import { LucideProps } from "lucide-react";
 
-const experiences = [
+type Experience = {
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  highlights: string[];
+  technologies: string[];
+  icon: React.ComponentType<LucideProps>;
+};
+
+const experiences: Experience[] = [
   {
     title: "Software Engineer",
     company: "Samsung R&D",
@@ -13,18 +25,20 @@ const experiences = [
       "Designed an in-house Python-based log analyzer for modem debugging and diagnostics",
     ],
     technologies: ["Java", "C++", "Python", "IPC/QMI", "5G", "Android"],
+    icon: SamsungIcon,
   },
   {
     title: "Data Analyst",
     company: "Amazon",
-    period: "Remote",
-    description: "Data Analytics & Insights",
+    period: "Jan 2023 – Nov 2023",
+    description: "Data Analytics & Insights (Remote)",
     highlights: [
       "Analyzed large-scale datasets using Python and SQL",
       "Supported predictive modeling, performance analysis, and business insights",
       "Conducted data-driven evaluations to guide modeling decisions",
     ],
     technologies: ["Python", "SQL", "Data Analysis", "Predictive Modeling"],
+    icon: AmazonIcon,
   },
 ];
 
@@ -62,7 +76,7 @@ const ExperienceSection = () => {
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
                   <div className="flex items-start gap-5">
                     <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                      <Briefcase className="text-primary" size={24} />
+                      <exp.icon className="text-primary" size={28} />
                     </div>
                     <div>
                       <h3 className="text-2xl font-display font-bold group-hover:text-primary transition-colors">
