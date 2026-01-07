@@ -38,9 +38,7 @@ const ContactSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-20">
-            <p className="text-primary font-medium text-sm uppercase tracking-widest mb-4 animate-fade-in-up">
-              Get In Touch
-            </p>
+            <p className="text-primary font-medium text-sm uppercase tracking-widest mb-4 animate-fade-in-up">GET IN TOUCH</p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 animate-fade-in-up" style={{
             animationDelay: "0.1s"
           }}>
