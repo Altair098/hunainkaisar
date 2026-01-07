@@ -5,7 +5,7 @@ type TimelineItem = {
   organization: string;
   role: string;
   dateRange: string;
-  type: "education" | "work" | "research";
+  type: "education" | "work" | "research" | "school";
 };
 
 const timelineData: TimelineItem[] = [
@@ -16,16 +16,16 @@ const timelineData: TimelineItem[] = [
     type: "education",
   },
   {
-    organization: "Amazon",
-    role: "Data Analyst (Remote)",
-    dateRange: "Feb 2023 – Dec 2023",
-    type: "work",
-  },
-  {
     organization: "National Institute of Technology Srinagar",
     role: "Research Intern",
-    dateRange: "Apr 2023 – Feb 2024",
+    dateRange: "Oct 2023 – Apr 2024",
     type: "research",
+  },
+  {
+    organization: "Amazon",
+    role: "Data Analyst (Remote)",
+    dateRange: "Jan 2023 – Nov 2023",
+    type: "work",
   },
   {
     organization: "Samsung R&D",
@@ -49,7 +49,7 @@ const timelineData: TimelineItem[] = [
     organization: "Iqbal Memorial Institute",
     role: "High School · 96.4%",
     dateRange: "Completed 2018",
-    type: "education",
+    type: "school",
   },
 ];
 
@@ -61,6 +61,8 @@ const getIcon = (type: TimelineItem["type"]) => {
       return Briefcase;
     case "research":
       return FlaskConical;
+    case "school":
+      return Building2;
     default:
       return Building2;
   }
