@@ -49,6 +49,13 @@ const papers: Paper[] = [
     venue: "IEEE Open Journal of Vehicular Technology",
     status: "submitted",
   },
+  {
+    title: "Battery Health Monitoring Through Smart Cameras: A Comprehensive Review",
+    authors: "Hunain Kaisar, Mir Suhail Alam, Nezar M. Alyazidi, Mujahed Al-Dhaifallah",
+    venue: "Scientific Reports (Nature Portfolio)",
+    year: 2026,
+    status: "submitted",
+  },
 ];
 
 // Sort: Accepted first, then Submitted, then Coming Soon, within each by year (reverse chronological)
