@@ -34,7 +34,7 @@ There are multiple ways to work with this codebase.
 I used **Lovable** for rapid UI iteration and layout refinement.
 
 * Open the project:
-  [https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID)
+  [https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID](https://lovable.dev/projects/6c9a1f3b-2d0b-4185-a235-5eebb3a2cf1e)
 * Changes made through Lovable are **automatically committed** to this repository.
 * Useful for quick UI, layout, and component-level updates.
 
