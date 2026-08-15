@@ -22,7 +22,7 @@ const HeroSection = () => {
             <div className="space-y-4 animate-fade-in-up">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-border/50 text-sm">
                 <Sparkles size={14} className="text-primary" />
-                <span className="text-muted-foreground">Open to opportunities</span>
+                <span className="text-muted-foreground">Open to Industry & PhD Roles</span>
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1]">
@@ -31,18 +31,19 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground font-light">
-                Designing AI systems that know when they don’t know.                          
+                Designing AI systems that know when they don't know.                          
               </p>
             </div>
 
             <p className="text-muted-foreground text-lg leading-relaxed max-w-xl animate-fade-in-up" style={{
             animationDelay: "0.1s"
           }}>
-              Master's student at KFUPM specializing in AI research, with a focus on{" "}
+              MS graduate from KFUPM specializing in AI research, with a focus on{" "}
               <span className="text-foreground font-medium">LLM reasoning</span>,{" "}
-              <span className="text-foreground font-medium">hallucination analysis</span>, and{" "}
+              <span className="text-foreground font-medium">hallucination analysis</span>,{" "}
+              <span className="text-foreground font-medium">digital twin frameworks</span>, and{" "}
               <span className="text-foreground font-medium">model reliability</span>. 
-              Transitioning from industry experience at Samsung R&D and Amazon.
+              
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{
@@ -79,7 +80,7 @@ const HeroSection = () => {
               </div>
               <div className="space-y-1">
                 <p className="text-4xl font-display font-bold text-gradient">MS</p>
-                <p className="text-sm text-muted-foreground">KFUPM 2026</p>
+                <p className="text-sm text-muted-foreground">Graduated May 2026</p>
               </div>
             </div>
           </div>
@@ -103,7 +104,7 @@ const HeroSection = () => {
                   </div>
                   <div>
                     <p className="text-sm font-semibold">Seeking</p>
-                    <p className="text-xs text-muted-foreground">​Innovation       </p>
+                    <p className="text-xs text-muted-foreground">Industry / PhD</p>
                   </div>
                 </div>
               </div>
