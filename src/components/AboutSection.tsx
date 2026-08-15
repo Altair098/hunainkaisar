@@ -7,7 +7,7 @@ const AboutSection = () => {
   const highlights = [{
     icon: Brain,
     title: "AI Research Focus",
-    description: "LLM reasoning, hallucination analysis, uncertainty quantification"
+    description: "LLM reasoning, hallucination mitigation, digital twin control, autonomous systems security"
   }, {
     icon: Sparkles,
     title: "Industry Background",
@@ -19,7 +19,7 @@ const AboutSection = () => {
   }, {
     icon: Users,
     title: "Seeking Opportunities",
-    description: "PhD positions, research collaborations, and AI/ML roles"
+    description: "Applied AI/ML roles, research scientist positions, and PhD programs in LLMs or cyber-physical systems"
   }];
   return <section id="about" className="py-28 relative overflow-hidden">
       {/* Background accent */}
@@ -41,8 +41,7 @@ const AboutSection = () => {
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up" style={{
             animationDelay: "0.2s"
           }}>
-              A passionate AI researcher transitioning from industry software roles 
-              to cutting-edge machine learning research.
+              MS graduate with hands-on research and industry experience, building AI systems that are reliable, interpretable, and production-ready.
             </p>
           </div>
 
@@ -60,22 +59,21 @@ const AboutSection = () => {
               >
                 <div className="space-y-6">
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    I'm currently in my final semester pursuing a{" "}
+                    I recently completed my{" "}
                     <span className="text-foreground font-medium">Master of Science in Electrical and Computer Engineering</span>{" "}
-                    at King Fahd University of Petroleum and Minerals (KFUPM), 
-                    with an expected graduation in May 2026.
+                    at King Fahd University of Petroleum and Minerals (KFUPM), graduating in May 2026 with a CGPA of 3.813/4.
                   </p>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    My research interests lie at the intersection of{" "}
+                    My research sits at the intersection of{" "}
                     <span className="text-primary font-medium">Large Language Models</span>,{" "}
-                    <span className="text-primary font-medium">Generative AI</span>, and{" "}
-                    <span className="text-primary font-medium">Computer Vision</span>. 
-                    I'm particularly fascinated by understanding and mitigating hallucinations in LLMs.
+                    <span className="text-primary font-medium">Digital Twin frameworks</span>, and{" "}
+                    <span className="text-primary font-medium">Autonomous Systems Security</span>.{" "}
+                    I focus on uncertainty quantification, hallucination mitigation, and building resilient control systems for cyber-physical environments — work that bridges theoretical rigor with real deployment constraints.
                   </p>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    Before diving into research, I gained valuable industry experience at 
-                    Samsung R&D working on 5G communication protocols and at Amazon as a 
-                    Data Analyst.
+                    Before research, I built large-scale systems at{" "}
+                    <span className="text-foreground font-medium">Samsung R&D</span> (5G protocols) and{" "}
+                    <span className="text-foreground font-medium">Amazon</span> (data analytics). That industry foundation shapes how I approach research — with an eye toward what actually ships.
                   </p>
                 </div>
 
@@ -90,7 +88,7 @@ const AboutSection = () => {
                     <div className="relative pl-6">
                       <div className="absolute left-0 top-2 w-3 h-3 rounded-full bg-primary -translate-x-[7px]" />
                       <p className="font-semibold text-base text-justify mx-0 px-0">MS in Electrical & Computer Engineering</p>
-                      <p className="text-muted-foreground text-sm">KFUPM • Expected May 2026 • CGPA: 3.813/4</p>
+                      <p className="text-muted-foreground text-sm">KFUPM • May 2026 • CGPA: 3.813/4</p>
                     </div>
                     <div className="relative pl-6">
                       <div className="absolute left-0 top-2 w-3 h-3 rounded-full bg-muted -translate-x-[7px]" />
