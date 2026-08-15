@@ -35,6 +35,7 @@ const papers: Paper[] = [
     venue: "Proceedings of the 2nd International Conference on Smart Mobility and Logistics Ecosystems (SMiLE), Dhahran, Saudi Arabia",
     year: 2026,
     status: "accepted",
+    doi: "https://www.sciencedirect.com/science/article/pii/S2352146526002826",
   },
   {
     title: "RL-Assisted Digital Twin for Adaptive Control Parameter Tuning of a Nonholonomic Mobile Robot Under Gaussian Noise",
@@ -44,16 +45,24 @@ const papers: Paper[] = [
     status: "accepted",
   },
   {
-    title: "A Digital Twin-empowered Resilient Path-following Methodology for Non-holonomic Autonomous Vehicles under Denial-of-Service Attacks",
+    title: "A Digital Twin-empowered Resilient Path-following Approach for Non-holonomic Autonomous Vehicles under DoS Attacks",
     authors: "Hunain Kaisar, Muhammad Rehan, Ijaz Ahmed, Muhammad Khalid",
-    venue: "IEEE Open Journal of Vehicular Technology",
-    status: "submitted",
+    venue: "Robotics and Autonomous Systems, Elsevier",
+    year: 2026,
+    status: "accepted",
+    doi: "https://www.sciencedirect.com/science/article/pii/S0921889026002757?via%3Dihub",
   },
   {
-    title: "Battery Health Monitoring Through Smart Cameras: A Comprehensive Review",
+    title: "Vision-Based Battery Health Monitoring Using Smart Cameras: A Comprehensive Review and Future Research Directions",
     authors: "Hunain Kaisar, Mir Suhail Alam, Nezar M. Alyazidi, Mujahed Al-Dhaifallah",
-    venue: "Scientific Reports (Nature Portfolio)",
+    venue: "Results in Engineering",
     year: 2026,
+    status: "accepted",
+  },
+  {
+    title: "A Digital Twin-based Cybersecurity Architecture for FDI Anomaly Detection and Isolation in Next Generation Robotic Vehicles",
+    authors: "Hunain Kaisar, Muhammad Rehan, Ijaz Ahmed, Muhammad Khalid",
+    venue: "IEEE Open Journal of the Communications Society",
     status: "submitted",
   },
 ];
