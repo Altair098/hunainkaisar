@@ -1,4 +1,4 @@
-import { Code, Database, Brain, Cloud, Wrench } from "lucide-react";
+import { Code, Database, Brain, Cloud, Wrench, Cpu } from "lucide-react";
 
 const skillCategories = [
   {
@@ -16,9 +16,13 @@ const skillCategories = [
     title: "Machine Learning & AI",
     skills: [
       { name: "LLM Reasoning", level: "Research" },
+      { name: "Hallucination Detection", level: "Research" },
+      { name: "Uncertainty Quantification", level: "Research" },
+      { name: "Prompt Engineering", level: "Advanced" },
+      { name: "RAG Systems", level: "Intermediate" },
+      { name: "RLHF / Fine-tuning", level: "Intermediate" },
+      { name: "Agentic AI Systems", level: "Intermediate" },
       { name: "NLP", level: "Advanced" },
-      { name: "Predictive Modeling", level: "Advanced" },
-      { name: "Time-Series Analysis", level: "Advanced" },
       { name: "Multimodal ML", level: "Intermediate" },
       { name: "Model Evaluation", level: "Advanced" },
     ],
@@ -28,10 +32,14 @@ const skillCategories = [
     title: "Libraries & Frameworks",
     skills: [
       { name: "PyTorch", level: "Advanced" },
+      { name: "HuggingFace Transformers", level: "Advanced" },
+      { name: "LangChain", level: "Intermediate" },
+      { name: "OpenAI API", level: "Advanced" },
+      { name: "vLLM / TGI", level: "Intermediate" },
       { name: "TensorFlow", level: "Intermediate" },
+      { name: "Scikit-learn", level: "Advanced" },
       { name: "Pandas", level: "Advanced" },
       { name: "NumPy", level: "Advanced" },
-      { name: "Scikit-learn", level: "Advanced" },
       { name: "Matplotlib/Seaborn", level: "Advanced" },
     ],
   },
@@ -39,10 +47,12 @@ const skillCategories = [
     icon: Database,
     title: "Data & Tools",
     skills: [
+      { name: "Vector Databases", level: "Intermediate" },
       { name: "SQL Databases", level: "Advanced" },
+      { name: "MLflow", level: "Intermediate" },
       { name: "PySpark", level: "Foundational" },
-      { name: "Dashboards", level: "Intermediate" },
       { name: "Experiment Tracking", level: "Intermediate" },
+      { name: "Dashboards", level: "Intermediate" },
     ],
   },
   {
@@ -50,6 +60,7 @@ const skillCategories = [
     title: "Cloud & Compute",
     skills: [
       { name: "AWS", level: "Intermediate" },
+      { name: "HuggingFace Hub", level: "Intermediate" },
       { name: "GPU Training", level: "Advanced" },
       { name: "Distributed Computing", level: "Foundational" },
     ],
@@ -85,8 +96,8 @@ const SkillsSection = () => {
               Skills & <span className="text-gradient">Technologies</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-              A comprehensive toolkit spanning programming, machine learning, 
-              and cloud technologies.
+              A comprehensive toolkit spanning programming, machine learning,
+              and generative AI technologies.
             </p>
           </div>
 
