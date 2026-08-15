@@ -55,6 +55,7 @@ const projects = [
     featured: true,
     color: "from-violet-500/20 to-purple-500/20",
     icon: Code,
+    youtube: "https://www.youtube.com/watch?v=4hJVGfu5-oU",
   },
   {
     title: "Transformer-Enhanced Medical Imaging",
