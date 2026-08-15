@@ -28,7 +28,7 @@ const experiences: Experience[] = [
     icon: SamsungIcon,
   },
   {
-    title: "Data Analyst",
+    title: "Analyst",
     company: "Amazon",
     period: "Jan 2023 – Nov 2023",
     description: "Data Analytics & Insights (Remote)",
