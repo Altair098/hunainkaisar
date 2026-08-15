@@ -24,6 +24,7 @@ const projects = [
     featured: true,
     color: "from-red-500/20 to-orange-500/20",
     icon: Shield,
+    github: "https://github.com/Altair098/dt-rescue-dos",
   },
   {
     title: "Agentic LLM Verification Pipeline",
@@ -164,12 +165,24 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
             </div>
           </div>
 
-          {/* Placeholder for future figures */}
-          <div className="border-2 border-dashed border-border/50 rounded-xl p-8 text-center">
-            <p className="text-sm text-muted-foreground">
-              📊 Figures & Diagrams (Coming Soon)
-            </p>
-          </div>
+          {/* GitHub link or Coming Soon placeholder */}
+          {"github" in project && project.github ? (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg text-sm transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" />
+              View on GitHub
+            </a>
+          ) : (
+            <div className="border-2 border-dashed border-border/50 rounded-xl p-8 text-center">
+              <p className="text-sm text-muted-foreground">
+                📊 Figures & Diagrams (Coming Soon)
+              </p>
+            </div>
+          )}
         </div>
       </DialogContent>
     </Dialog>
