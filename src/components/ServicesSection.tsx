@@ -17,7 +17,7 @@ const services = [
     icon: GraduationCap,
     title: "PhD Applications",
     description:
-      "Actively applying to PhD programs focused on NLP, LLMs, and trustworthy AI systems.",
+      "AActively applying to PhD programs focused on representation learning, self-supervised learning, world models, foundation models, NLP, LLMs, and trustworthy AI.",
   },
   {
     icon: Code,
