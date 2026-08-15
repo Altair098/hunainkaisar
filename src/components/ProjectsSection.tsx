@@ -1,5 +1,5 @@
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
-import { FlaskConical, Code, Zap, ExternalLink, X, GripHorizontal } from "lucide-react";
+import { FlaskConical, Code, Zap, ExternalLink, X, GripHorizontal, Shield } from "lucide-react";
 import { useState, useRef } from "react";
 import {
   Dialog,
@@ -10,6 +10,21 @@ import {
 } from "@/components/ui/dialog";
 
 const projects = [
+  {
+    title: "DT-Rescue: Resilient Path-Following under DoS Attacks",
+    category: "Robotics & Control",
+    description:
+      "Digital Twin-based rescue controller for non-holonomic autonomous vehicles under Denial-of-Service attacks, combining CBF safety enforcement, curvature-aware speed capping, and adaptive depth estimation.",
+    highlights: [
+      "81% tracking error reduction vs ZOH baseline across 120 Monte Carlo runs",
+      "100% safety compliance on continuous-curvature paths",
+      "Published in Robotics and Autonomous Systems, 2026",
+    ],
+    technologies: ["Python", "Digital Twin", "CBF", "Visual Servoing", "DoS Resilience"],
+    featured: true,
+    color: "from-red-500/20 to-orange-500/20",
+    icon: Shield,
+  },
   {
     title: "Agentic LLM Verification Pipeline",
     category: "LLM Research",
@@ -403,7 +418,7 @@ const ProjectsSection = () => {
           className="text-center mt-12"
         >
           <a
-            href="https://github.com"
+            href="https://github.com/Altair098"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-secondary/50 hover:bg-secondary text-secondary-foreground rounded-full transition-colors"
