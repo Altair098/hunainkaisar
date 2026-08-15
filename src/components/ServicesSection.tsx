@@ -1,44 +1,42 @@
 import { Users, Briefcase, GraduationCap, Code, FileText, Lightbulb, ArrowRight } from "lucide-react";
-
 const services = [
   {
     icon: Users,
     title: "Research Collaborations",
     description:
-      "Open to collaborating on LLM reasoning, hallucination detection, and AI reliability research projects.",
+      "Open to collaborating on LLM reasoning, hallucination detection, AI reliability, and digital twin-based control research.",
   },
   {
     icon: Briefcase,
     title: "Industry AI/ML Roles",
     description:
-      "Seeking machine learning engineer or research scientist positions in innovative AI teams.",
+      "Seeking Applied Scientist, Research Scientist, or Machine Learning Engineer roles in teams working on LLMs, Generative AI, or intelligent autonomous systems.",
   },
   {
     icon: GraduationCap,
     title: "PhD Applications",
     description:
-      "AActively applying to PhD programs focused on representation learning, self-supervised learning, world models, foundation models, NLP, LLMs, and trustworthy AI.",
+      "Actively applying to PhD programs focused on LLM reliability, trustworthy AI, hallucination mitigation, and cyber-physical systems security.",
   },
   {
     icon: Code,
     title: "Freelance AI Projects",
     description:
-      "Available for consulting on ML pipelines, model evaluation, and AI system design.",
+      "Available for consulting on LLM evaluation pipelines, RAG system design, and AI reliability assessment.",
   },
   {
     icon: FileText,
     title: "Internships",
     description:
-      "Open to research internships at academic labs and industry AI research divisions.",
+      "Open to research internships at AI labs and industry divisions focused on foundation models, generative AI, or autonomous systems.",
   },
   {
     icon: Lightbulb,
     title: "Research Assistance",
     description:
-      "Can provide support for NLP experiments, model benchmarking, and technical writing.",
+      "Can provide support for LLM benchmarking, RAG experiments, uncertainty quantification, and technical writing for AI publications.",
   },
 ];
-
 const ServicesSection = () => {
   return (
     <section id="services" className="py-28 relative overflow-hidden">
@@ -56,11 +54,10 @@ const ServicesSection = () => {
               What I'm <span className="text-gradient">Looking For</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-              Actively seeking opportunities to contribute to cutting-edge AI research 
+              Actively seeking opportunities to contribute to cutting-edge AI research
               and development.
             </p>
           </div>
-
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
@@ -92,5 +89,4 @@ const ServicesSection = () => {
     </section>
   );
 };
-
 export default ServicesSection;
